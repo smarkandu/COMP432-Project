@@ -63,9 +63,10 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
         test_losses.append(test_loss)
         train_accuracies.append(train_accuracy)
         test_accuracies.append(test_accuracy)
-        print(
-            'Epoch: {}  train_loss={:.4f}, test_loss={:.4f}, test_err={:.2f}%, train_accuracy={:.2f}%, '
-            'test_accuracy={:.2f}%' \
-                .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
+        if args.debug:
+            print(
+                'Epoch: {}  train_loss={:.4f}, test_loss={:.4f}, test_err={:.2f}%, train_accuracy={:.2f}%, '
+                'test_accuracy={:.2f}%' \
+                    .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
     return train_losses, test_losses, train_accuracies, test_accuracies
