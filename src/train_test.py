@@ -1,6 +1,6 @@
 import torch
-import matplotlib.pyplot as plt
 import torch.nn.functional as F
+from plot_graphs import plot_graphs
 
 
 def train(X_trn, y_trn, model, loss, args, optimizer):
@@ -70,19 +70,6 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args, plot=False):
                 .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
     if plot:
-        plt.figure(figsize=(10, 5))
-        plt.subplot(1, 2, 1)
-        plt.plot(train_losses, '-s', label='train')
-        plt.plot(test_losses, '-s', label='test')
-        plt.ylabel('Loss')
-        plt.xlabel('Epochs')
-        plt.legend()
-        plt.subplot(1, 2, 2)
-        plt.plot(train_accuracies, '-s', label='train')
-        plt.plot(test_accuracies, '-s', label='test')
-        plt.ylabel('Accuracy')
-        plt.xlabel('Epochs')
-        plt.legend()
-        plt.show()
+        plot_graphs(train_losses, test_losses, train_accuracies, test_accuracies)
 
     return train_accuracies[-1], test_accuracies[-1]
