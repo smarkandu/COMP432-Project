@@ -69,7 +69,4 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
             'test_accuracy={:.2f}%' \
                 .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
-    if args.plot:
-        plot_graphs(train_losses, test_losses, train_accuracies, test_accuracies)
-
-    return train_accuracies[-1], test_accuracies[-1]
+    return train_losses, test_losses, train_accuracies, test_accuracies

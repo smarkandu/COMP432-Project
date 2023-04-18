@@ -5,7 +5,6 @@ import sklearn.neural_network
 import torch
 
 
-
 def get_data():
     data_retrieval = 0
 
