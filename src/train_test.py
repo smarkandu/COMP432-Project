@@ -1,5 +1,6 @@
 import torch
 import matplotlib.pyplot as plt
+import torch.nn.functional as F
 
 
 def train(X_trn, y_trn, model, loss, args, optimizer):
