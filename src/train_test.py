@@ -1,6 +1,5 @@
 import torch
 import torch.nn.functional as F
-from plot_graphs import plot_graphs
 
 
 def train(X_trn, y_trn, model, loss, args, optimizer):
