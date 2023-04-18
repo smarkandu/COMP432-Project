@@ -19,14 +19,14 @@ def orion_train():
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.01,
                         help='learning rate (default: 1.0)')
-    parser.add_argument('--neurons', type=int, default=100,
-                        help='number of neurons (default: 100)')
+    # parser.add_argument('--neurons', type=int, default=100,
+    #                     help='number of neurons (default: 100)')
     parser.add_argument('--eval', type=bool, default=False,
                         help='If True it prints the test error (default: False)')
     parser.add_argument('--weightdecay', type=float, default=0,
                         help='weight decay (default: 0)')
-    parser.add_argument('--plot', type=bool, default=False,
-                        help='If True it plots the metric')
+    # parser.add_argument('--plot', type=bool, default=False,
+    #                     help='If True it plots the metric')
     args = parser.parse_args()
     print(args)
 
