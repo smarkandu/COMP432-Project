@@ -1,17 +1,11 @@
 import argparse
-import numpy as np
-import sklearn
-import sklearn.preprocessing
-import sklearn.neural_network
 import torch
 import copy
 import torch.nn.functional as F
 from orion.client import report_objective  # Orion
 from models.plain_cnn import plain_cnn_model
+from preprocessing.data_preprocessing import get_and_split_data
 import matplotlib.pyplot as plt
-
-
-
 
 device = "cpu"
 if torch.cuda.is_available():
