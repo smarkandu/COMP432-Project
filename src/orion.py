@@ -7,6 +7,8 @@ import torch
 import copy
 import torch.nn.functional as F
 from orion.client import report_objective  # Orion
+from models.plain_cnn import plain_cnn_model
+import matplotlib.pyplot as plt
 
 
 def get_data():
@@ -45,7 +47,6 @@ torch.manual_seed(0)  # Ensure model weights initialized with same random number
 
 # Your code here. Aim for 8-11 lines.
 drop_out_value = 0
-
 
 
 # Split train and test data (aim for 1 line)
@@ -123,7 +124,7 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args, plot=False):
         test_accuracies.append(test_accuracy)
         print(
             'Epoch: {}  train_loss={:.4f}, test_loss={:.4f}, test_err={:.2f}%, train_accuracy={:.2f}%, test_accuracy={:.2f}%' \
-            .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
+                .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
     if plot == True:
         plt.figure(figsize=(10, 5))
