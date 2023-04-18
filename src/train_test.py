@@ -50,7 +50,7 @@ def test(X_tst, y_tst, model, loss, args):
     return torch.tensor(losses).mean(), err / len(X_tst), torch.tensor(accuracies).mean()
 
 
-def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args, plot=False):
+def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
     train_losses = []
     test_losses = []
     train_accuracies = []
@@ -69,7 +69,7 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args, plot=False):
             'test_accuracy={:.2f}%' \
                 .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
-    if plot:
+    if args.plot:
         plot_graphs(train_losses, test_losses, train_accuracies, test_accuracies)
 
     return train_accuracies[-1], test_accuracies[-1]

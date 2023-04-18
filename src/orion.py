@@ -25,7 +25,8 @@ def orion_train():
                         help='If True it prints the test error (default: False)')
     parser.add_argument('--weightdecay', type=float, default=0,
                         help='weight decay (default: 0)')
-    parser.add_argument("-f", required=False)
+    parser.add_argument('--plot', type=bool, default=False,
+                        help='If True it plots the metric')
     args = parser.parse_args()
     print(args)
 
