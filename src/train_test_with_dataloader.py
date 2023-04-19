@@ -55,7 +55,7 @@ def test(test_loader, model, loss, args):
     return test_loss, test_err, test_accuracy
 
 
-def plot_epochs(train_loader, test_loader, model, loss, args):
+def run_epochs(train_loader, test_loader, model, loss, args):
     train_losses = []
     test_losses = []
     train_accuracies = []
