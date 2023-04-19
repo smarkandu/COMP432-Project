@@ -76,3 +76,32 @@ def run_epochs(train_loader, test_loader, model, loss, args):
                     .format(epoch + 1, train_loss, test_loss, test_err * 100, train_accuracy * 100, test_accuracy * 100))
 
     return train_losses, test_losses, train_accuracies, test_accuracies
+
+
+# face_dataset = NPZ_DataSet(path='')
+# from torch.utils.data import random_split
+# generator2 = torch.Generator().manual_seed(42)
+# train_data, val_data, test_data = random_split(face_dataset, [0.3, 0.3, 0.4], generator=generator2)
+#
+# print(train_data)
+# from argparse import Namespace
+# args = Namespace(batchsize=64, epochs=30, lr=0.001, weightdecay=0, eval=False,plot=True,debug=True)
+#
+# # Data loaders
+# train_loader = torch.utils.data.DataLoader(dataset = train_data,
+#                                              batch_size = args.batchsize,
+#                                              shuffle = True)
+#
+# test_loader = torch.utils.data.DataLoader(dataset = test_data,
+#                                       batch_size = args.batchsize,
+#                                       shuffle = False)
+#
+#
+# for images, labels in train_loader:
+#     print(labels)
+#
+# # print(train_loader)
+#
+#
+# train_losses, test_losses, train_accuracies, test_accuracies = run_epochs(train_loader, test_loader, model, loss, args)
+# plot_graphs(train_losses, test_losses, train_accuracies, test_accuracies)
