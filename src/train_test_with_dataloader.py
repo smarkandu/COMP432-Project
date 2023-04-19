@@ -55,7 +55,7 @@ def test(test_loader, model, loss, args):
     return test_loss, test_err, test_accuracy
 
 
-def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
+def plot_epochs(train_loader, test_loader, model, loss, args):
     train_losses = []
     test_losses = []
     train_accuracies = []
@@ -63,8 +63,8 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weightdecay)
 
     for epoch in range(args.epochs):
-        train_loss, train_accuracy = train(X_trn, y_trn, model, loss, args, optimizer)
-        test_loss, test_err, test_accuracy = test(X_tst, y_tst, model, loss, args)
+        train_loss, train_accuracy = train(train_loader, model, loss, args, optimizer)
+        test_loss, test_err, test_accuracy = test(test_loader, model, loss, args)
         train_losses.append(train_loss)
         test_losses.append(test_loss)
         train_accuracies.append(train_accuracy)
