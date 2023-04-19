@@ -46,7 +46,12 @@ def test(X_tst, y_tst, model, loss, args):
         predictions = torch.argmax(F.softmax(outputs, dim=1), dim=1)
         accuracies.append(sum(predictions == labels).item() / args.batchsize)
         err = err + (predictions != labels).sum().item()
-    return torch.tensor(losses).mean(), err / len(X_tst), torch.tensor(accuracies).mean()
+
+    # Prepare Output
+    test_loss = torch.tensor(losses).mean()
+    test_err = err / len(X_tst)
+    test_accuracy = torch.tensor(accuracies).mean()
+    return test_loss, test_err, test_accuracy
 
 
 def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
