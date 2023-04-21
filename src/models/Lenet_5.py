@@ -1,7 +1,8 @@
 import torch
 
 lenet5_model = torch.nn.Sequential(
-    torch.nn.Conv2d(1, 6, kernel_size=12, stride=4),
+    #    torch.nn.Conv2d(1, 6, kernel_size=12, stride=4),
+    torch.nn.Conv2d(1, 6, kernel_size=6, stride=1),
     torch.nn.Tanh(),
     torch.nn.AvgPool2d(kernel_size=2, stride=2),
 
