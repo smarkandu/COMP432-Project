@@ -3,6 +3,7 @@ import torch
 import copy
 from orion.client import report_objective  # Orion
 from models.plain_cnn import plain_cnn_model
+from models.Lenet_5 import lenet5_model
 from preprocessing.data_preprocessing import get_and_split_data
 from train_test import plot_epochs
 
@@ -19,22 +20,25 @@ def orion_train():
                         help='number of epochs to train (default: 14)')
     parser.add_argument('--lr', type=float, default=0.01,
                         help='learning rate (default: 1.0)')
-    # parser.add_argument('--neurons', type=int, default=100,
-    #                     help='number of neurons (default: 100)')
     parser.add_argument('--eval', type=bool, default=False,
                         help='If True it prints the test error (default: False)')
     parser.add_argument('--weightdecay', type=float, default=0,
                         help='weight decay (default: 0)')
     parser.add_argument('--debug', type=bool, default=False,
                         help='If True it prints the debug traces (default: False)')
-    # parser.add_argument('--plot', type=bool, default=False,
-    #                     help='If True it plots the metric')
+    parser.add_argument('--model', type=str, default="",
+                        help='Enter model to test (default: empty string)')
     args = parser.parse_args()
     print(args)
 
     # Select data
     X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70)
-    model = copy.deepcopy(plain_cnn_model).to(device)
+    if args.model == 'plain_cnn':
+        model = copy.deepcopy(plain_cnn_model).to(device)
+    elif args.model == 'lenet-5':
+        model = copy.deepcopy(lenet5_model).to(device)
+    else:
+        raise Exception("Error: Model type not recognized!")    
 
     # Your code for defining loss, optimizer, and training loop here. Aim for 10-12 lines.
     loss = torch.nn.CrossEntropyLoss()
