@@ -26,19 +26,21 @@ def orion_train():
                         help='weight decay (default: 0)')
     parser.add_argument('--debug', type=bool, default=False,
                         help='If True it prints the debug traces (default: False)')
-    parser.add_argument('--model', type=str, default="",
-                        help='Enter model to test (default: empty string)')
+    parser.add_argument('--model', type=int, default=-1,
+                        help='Enter # of model to test (default: -1)')
     args = parser.parse_args()
     print(args)
 
     # Select data
     X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70)
-    if args.model == 'plain_cnn':
+    if args.model == 0:
+        print("plain_cnn selected")
         model = copy.deepcopy(plain_cnn_model).to(device)
-    elif args.model == 'lenet-5':
+    elif args.model == 1:
+        print("lenet-5 selected")
         model = copy.deepcopy(lenet5_model).to(device)
     else:
-        raise Exception("Error: Model type not recognized!")    
+        raise Exception("Error: Model type not recognized!")
 
     # Your code for defining loss, optimizer, and training loop here. Aim for 10-12 lines.
     loss = torch.nn.CrossEntropyLoss()
