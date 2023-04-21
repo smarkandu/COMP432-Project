@@ -4,6 +4,7 @@ import copy
 from orion.client import report_objective  # Orion
 from models.plain_cnn import plain_cnn_model
 from models.Lenet_5 import lenet5_model
+from models.alex_net import alex_net_model
 from preprocessing.data_preprocessing import get_and_split_data
 from train_test import plot_epochs
 
@@ -39,6 +40,9 @@ def orion_train():
     elif args.model == 1:
         print("lenet-5 selected")
         model = copy.deepcopy(lenet5_model).to(device)
+    elif args.model == 2:
+        print("AlexNet selected")
+        model = copy.deepcopy(alex_net_model).to(device)
     else:
         raise Exception("Error: Model type not recognized!")
 
