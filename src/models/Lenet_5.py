@@ -11,6 +11,7 @@ lenet5_model = torch.nn.Sequential(
 
     torch.nn.Conv2d(16, 120, kernel_size=5),
 
+    torch.nn.Flatten(1, -1),
     torch.nn.Linear(120, 84),
     torch.nn.Tanh(),
     torch.nn.Linear(84, 15)

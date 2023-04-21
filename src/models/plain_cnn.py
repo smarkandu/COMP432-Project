@@ -21,6 +21,6 @@ plain_cnn_model = torch.nn.Sequential(  # 120 X 120 X 1
     torch.nn.ReLU(),
     torch.nn.MaxPool2d(kernel_size=2, stride=2),  # 7 X 7 X ?
 
-    torch.nn.Flatten(1, -1),
+    torch.nn.Flatten(1, -1),  # 3 X 3 X 128
     torch.nn.Linear(1152, 15)
 )
