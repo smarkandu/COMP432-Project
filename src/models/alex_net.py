@@ -1,9 +1,7 @@
 import torch
 
 alex_net_model = torch.nn.Sequential(
-    # Note: Conv2d modified from the usual first layer of AlexNet
-    # where kernel_size=11 and stride=4 in order to obtain an appropriate feature map size of 55X55X96
-    torch.nn.Conv2d(3, 96, kernel_size=12, stride=2),
+    torch.nn.Conv2d(3, 96, kernel_size=11, stride=4),
     torch.nn.ReLU(),
     torch.nn.MaxPool2d(kernel_size=3, stride=2),
 
@@ -20,7 +18,9 @@ alex_net_model = torch.nn.Sequential(
     torch.nn.MaxPool2d(kernel_size=3, stride=2),
 
     torch.nn.Flatten(1, -1),
-    torch.nn.Linear(9216, 9216),
+    # Note: 1st Linear modified from the expected value AlexNet
+    # instead of an input channel of 1024, we'll change it to 1024
+    torch.nn.Linear(1024, 9216),
     torch.nn.ReLU(),
     torch.nn.Linear(9216, 4096),
     torch.nn.ReLU(),
