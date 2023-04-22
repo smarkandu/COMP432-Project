@@ -26,6 +26,8 @@ def get_data(no_of_bands):
         if no_of_bands == 1:
             X = X[:, :, :, 2]  # Get one channel
             X = X.reshape(-1, 1, 120, 120)
+        else:
+            X = X.reshape(-1, 3, 120, 120)
 
         # Normalize input from [0,255] to [0,1]
         X = X / 255.0
