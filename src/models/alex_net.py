@@ -3,7 +3,7 @@ import torch
 alex_net_model = torch.nn.Sequential(
     # Note: Conv2d modified from the usual first layer of AlexNet
     # where kernel_size=11 and stride=4 in order to obtain an appropriate feature map size of 55X55X96
-    torch.nn.Conv2d(1, 96, kernel_size=12, stride=2),
+    torch.nn.Conv2d(3, 96, kernel_size=12, stride=2),
     torch.nn.ReLU(),
     torch.nn.MaxPool2d(kernel_size=3, stride=2),
 
