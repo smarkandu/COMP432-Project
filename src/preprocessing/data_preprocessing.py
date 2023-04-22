@@ -5,7 +5,7 @@ import sklearn.neural_network
 import torch
 
 
-def get_data():
+def get_data(no_of_bands):
     data_retrieval = 0
 
     if data_retrieval == 0:
@@ -23,9 +23,12 @@ def get_data():
 
     with np.load(path_for_npz) as data:
         X = data['X']
-        X = X[:, :, :, 2]  # Get one channel
-        X = X.reshape(-1, 1, 120, 120)
-        X = X / 255.0  # Normalize data
+        if no_of_bands == 1:
+            X = X[:, :, :, 2]  # Get one channel
+            X = X.reshape(-1, 1, 120, 120)
+
+        # Normalize input from [0,255] to [0,1]
+        X = X / 255.0
 
         y = data['y']
         # Encode labels to integers
@@ -44,8 +47,8 @@ drop_out_value = 0
 
 
 # Split train and test data (aim for 1 line)
-def get_and_split_data(train_size):
-    X, y = get_data()
+def get_and_split_data(train_size, no_of_bands=1):
+    X, y = get_data(no_of_bands)
     X_trn, X_tst, y_trn, y_tst = sklearn.model_selection.train_test_split(X, y, train_size=train_size, random_state=0)
     X_val, X_tst, y_val, y_tst = sklearn.model_selection.train_test_split(X_tst, y_tst, train_size=0.5, random_state=0)
     X_trn = torch.from_numpy(X_trn)

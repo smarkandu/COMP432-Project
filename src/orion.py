@@ -33,15 +33,18 @@ def orion_train():
     print(args)
 
     # Select data
-    X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70)
+
     if args.model == 0:
         print("plain_cnn selected")
+        X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70)
         model = copy.deepcopy(plain_cnn_model).to(device)
     elif args.model == 1:
         print("lenet-5 selected")
+        X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70)
         model = copy.deepcopy(lenet5_model).to(device)
     elif args.model == 2:
         print("AlexNet selected")
+        X_trn, X_val, X_tst, y_trn, y_val, y_tst = get_and_split_data(0.70, 3)
         model = copy.deepcopy(alex_net_model).to(device)
     else:
         raise Exception("Error: Model type not recognized!")
