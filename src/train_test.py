@@ -59,7 +59,11 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
     test_losses = []
     train_accuracies = []
     test_accuracies = []
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weightdecay)
+
+    if args.model == 2:
+        optimizer = torch.optim.SGD(model.parameters(), lr=args.lr, weight_decay=args.weightdecay, momentum=args.momentum)
+    else:
+        optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weightdecay)
 
     for epoch in range(args.epochs):
         train_loss, train_accuracy = train(X_trn, y_trn, model, loss, args, optimizer)

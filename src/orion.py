@@ -29,6 +29,8 @@ def orion_train():
                         help='If True it prints the debug traces (default: False)')
     parser.add_argument('--model', type=int, default=-1,
                         help='Enter # of model to test (default: -1)')
+    parser.add_argument('--momentum', type=int, default=0,
+                        help='Enter value of momentum (default: 0)')
     args = parser.parse_args()
     print(args)
 
