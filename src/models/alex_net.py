@@ -20,7 +20,7 @@ alex_net_model = torch.nn.Sequential(
     torch.nn.MaxPool2d(kernel_size=3, stride=2),
 
     torch.nn.Flatten(1, -1),
-    torch.nn.Linear(256, 9216),
+    torch.nn.Linear(9216, 9216),
     torch.nn.ReLU(),
     torch.nn.Linear(9216, 4096),
     torch.nn.ReLU(),
