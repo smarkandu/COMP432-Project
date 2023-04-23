@@ -15,6 +15,20 @@ if torch.cuda.is_available():
 
 
 def orion_train():
+    """
+        Used to initiate the Orion hyperparameter search
+
+        Partially taken from the hyperparameter tuning lab:
+        https://colab.research.google.com/drive/1WqSqLg-o55S1Fj3Og8_7I0B4M2G7NchK?usp=sharing
+
+        But heavily modified such that:
+        - It uses pytorch instead
+        - linked to the necessary functions via import statements (test/training loops, graphing, etc)
+        - Added / removed arguments per what I needed
+        - Runs for the models of this project (determined by the new "model" parameter)
+
+    :return: Nothing is returned (all print statements)
+    """
     parser = argparse.ArgumentParser(description='PyTorch MNIST Example')
     parser.add_argument('--batchsize', type=int, default=64,
                         help='input batch size for training (default: 64)')

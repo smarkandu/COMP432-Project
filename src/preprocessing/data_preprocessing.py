@@ -6,6 +6,14 @@ import torch
 
 
 def get_data(no_of_bands):
+    """
+    Get input data and labels from NPZ file
+
+    This is an original function
+
+    :param no_of_bands: Number of bands for input
+    :return: input data X, labels y
+    """
     data_retrieval = 0
 
     if data_retrieval == 0:
@@ -50,6 +58,17 @@ drop_out_value = 0
 
 # Split train and test data (aim for 1 line)
 def get_and_split_data(train_size, no_of_bands=1):
+    """
+    This first gets the data and then splits it into training, test and validation sets
+    It uses the train size parameter as a percentage for the training size and then for the remaining percentage,
+    it divided that in half for the test and validation set.
+
+    This is an original function.
+
+    :param train_size: Percentage of data set to be split for training.  Remaining is split in half for test/val sets
+    :param no_of_bands: Number of bands for input
+    :return: Training set, validation set, test set, training labels, validation labels, test labels
+    """
     X, y = get_data(no_of_bands)
     X_trn, X_tst, y_trn, y_tst = sklearn.model_selection.train_test_split(X, y, train_size=train_size, random_state=0)
     X_val, X_tst, y_val, y_tst = sklearn.model_selection.train_test_split(X_tst, y_tst, train_size=0.5, random_state=0)

@@ -3,6 +3,11 @@ import os
 from tensorflow.keras.preprocessing.image import img_to_array, load_img
 import pandas as pd
 
+"""
+# Found in https://docs.deepcognition.ai/how-to-guides/datasets/create-numpy-dataset-from-images,
+# but lightly modified according to my requirements
+"""
+
 image_dataset_dir = "G:\\My Drive\\Colab Notebooks\\COMP 432\\Project\\data"
 new_dataset_folder = "G:\\My Drive\\Colab Notebooks\\COMP 432\\Project\\npz"
 
@@ -10,6 +15,7 @@ dataset = {
     "image": [],
     "label": []
 }
+
 for label in os.listdir(image_dataset_dir):
     images_dir = image_dataset_dir + "/" + label
     if not os.path.isdir(images_dir):
