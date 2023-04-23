@@ -4,7 +4,7 @@
 ## By Steven Markandu
 
 ### **Abstract**
-The goal of this project was to train a model that takes hand drawn circuit component images as input and is able to properly classify them using the label given to us via the data set.  The data set was obtained via Kaggle, and contains the necessary images which can be used for both training the model and then finally testing it.  CNNs was used in implementing this.  
+The goal of this project was to train a model that takes hand drawn circuit component images as input and is able to properly classify them using the label given to us via the data set.  The data set was obtained via Kaggle (https://www.kaggle.com/datasets/moodrammer/handdrawn-circuit-schematic-components), and contains the necessary images which can be used for both training the model and then finally testing it.  CNNs was used in implementing this.  
 
 The main challenges include having enough data to sufficiently test/train my model.  A huge challenge will be in researching a sufficient machine learning model(s) different from CNN in order to accomplish the same task.  And finally, fine-tuning our model in order to achieve the best performance we’re able to achieve.  
 
