@@ -8,6 +8,7 @@ from models.alex_net import alex_net_model
 from preprocessing.data_preprocessing import get_and_split_data
 from train_test import plot_epochs
 
+torch.manual_seed(0)
 device = "cpu"
 if torch.cuda.is_available():
     device = "cuda"
