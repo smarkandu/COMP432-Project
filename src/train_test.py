@@ -84,6 +84,6 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
 
     X_tst = X_tst.to(device)
     y_tst = y_tst.to(device)
-    print("Loss on entire test set: %.4f" % (epoch, loss(model(X_tst), y_tst)))
+    print("Loss on entire test set: %.4f" % (loss(model(X_tst), y_tst)))
 
     return train_losses, test_losses, train_accuracies, test_accuracies
