@@ -6,8 +6,7 @@ def plot_graphs(train_losses, test_losses, train_accuracies, test_accuracies):
     Creates two graphs: a loss vs epoch graph and an accuracy vs epoch graph
     Two curves for each graph: the training curve and test curve
 
-    This was partially taken from the "Debug" lab:
-    https://colab.research.google.com/drive/1_CaBwPTjCJPrH5ZZ6uA86v6FzFKu8anP?usp=share_link
+    This was partially taken from the "Debug" lab.
 
     But modified such that:
     - it also includes a graph for the train/test accuracies

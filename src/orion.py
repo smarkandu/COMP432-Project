@@ -18,8 +18,7 @@ def orion_train():
     """
         Used to initiate the Orion hyperparameter search
 
-        Partially taken from the hyperparameter tuning lab:
-        https://colab.research.google.com/drive/1WqSqLg-o55S1Fj3Og8_7I0B4M2G7NchK?usp=sharing
+        Partially taken from the hyperparameter tuning lab (Orion).
 
         But heavily modified such that:
         - It uses pytorch instead

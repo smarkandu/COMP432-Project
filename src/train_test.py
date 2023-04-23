@@ -6,11 +6,9 @@ def train(X_trn, y_trn, model, loss, args, optimizer):
     """
     Training loop for model
 
-    Partially taken from the "Debug" Week 5 tutorial:
-    https://colab.research.google.com/drive/1_CaBwPTjCJPrH5ZZ6uA86v6FzFKu8anP?usp=share_link
+    Partially taken from the "Debug" Week 5 tutorial.
 
-    Modifications made:
-    Modifications made:
+    But had the following modifications made:
     - Doesn't use a dataloader
     - Accepts any data set (was hardcoded before to MNIST)
     - Added mean training accuracy as a return value
@@ -53,10 +51,9 @@ def test(X_tst, y_tst, model, loss, args):
     """
     Test loop for model
 
-    Partially taken from the "Debug" Week 5 tutorial:
-    https://colab.research.google.com/drive/1_CaBwPTjCJPrH5ZZ6uA86v6FzFKu8anP?usp=share_link
+    Partially taken from the "Debug" Week 5 tutorial.
 
-    Modifications made:
+    But had the following modifications made:
     - Doesn't use a dataloader
     - Accepts any data set (was hardcoded before to MNIST)
     - Added mean test accuracy as a return value
@@ -99,8 +96,7 @@ def plot_epochs(X_trn, y_trn, X_tst, y_tst, model, loss, args):
     """
     Trains model then runs model on test data.
 
-    Partially taken from the "Debug" Week 5 tutorial:
-    https://colab.research.google.com/drive/1_CaBwPTjCJPrH5ZZ6uA86v6FzFKu8anP?usp=share_link
+    Partially taken from the "Debug" Week 5 tutorial.
 
     Modified such that:
      - it can be called via Orion
