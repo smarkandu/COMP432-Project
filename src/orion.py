@@ -53,7 +53,10 @@ def orion_train():
 
     # Your code for defining loss, optimizer, and training loop here. Aim for 10-12 lines.
     loss = torch.nn.CrossEntropyLoss()
+
+    # Call plot_epochs
     _, _, _, test_accuracies = plot_epochs(X_trn, y_trn, X_val, y_val, model, loss, args)
+
     val_score = test_accuracies[-1]
     valid_error = (100 * (1 - val_score)).item()
     print("Valid Error (\%): " + str(valid_error))

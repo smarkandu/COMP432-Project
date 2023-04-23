@@ -18,10 +18,12 @@ alex_net_model = torch.nn.Sequential(
     torch.nn.Conv2d(384, 256, kernel_size=3, padding=1),
     torch.nn.ReLU(),
     torch.nn.MaxPool2d(kernel_size=3, stride=2),
+    torch.nn.Dropout(0.5),
 
     torch.nn.Flatten(1, -1),
     torch.nn.Linear(9216, 4096),
     torch.nn.ReLU(),
+    torch.nn.Dropout(0.5),
     torch.nn.Linear(4096, 4096),
     torch.nn.ReLU(),
     torch.nn.Linear(4096, 15)
